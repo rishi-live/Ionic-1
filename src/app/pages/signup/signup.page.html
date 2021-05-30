@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding='true'>
+  <div class="center" style="margin-top: 20%;">
+    <img src="assets/images/logo.png" class="smallLogo" />
+    <h1>Sign Up</h1>
+  </div>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating" color="primary">First Name</ion-label>
+        <ion-input autocomplete="off" type="text" name="first_name" [(ngModel)]="postData.first_name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Last Name</ion-label>
+        <ion-input autocomplete="off" type="text" name="last_name" [(ngModel)]="postData.last_name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Email</ion-label>
+        <ion-input autocomplete="off" type="text" name="email" [(ngModel)]="postData.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Mobile</ion-label>
+        <ion-input autocomplete="off" type="number" name="mobile" [(ngModel)]="postData.mobile"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Password</ion-label>
+        <ion-input autocomplete="off" type="password" name="password" [(ngModel)]="postData.password"></ion-input>
+      </ion-item>
+
+      <ion-item lines='none'>
+        Already have an account? <a routerLink='/login'> LogIn</a>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" share="round" color="success" (click)="signupAction()">SignUp</ion-button>
+  </form>
+</ion-content>
