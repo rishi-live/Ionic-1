@@ -9,22 +9,23 @@
       <img src="assets/images/logo.png" class="smallLogo"/>
       <h1>Sign In</h1>
     </div>
-  <form>
+  <!-- <form> -->
     <ion-list>
       <ion-item>
         <ion-label position="floating" color="primary">Email</ion-label>
-        <ion-input autocomplete="off" type="email" name="email" [(ngModel)]="loginData.email"></ion-input>
+        <!-- [(ngModel)]="loginData.email"  [(ngModel)]="loginData.password" -->
+        <ion-input autocomplete="off" type="email" name="email" id="email" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="floating"  color="primary">Password</ion-label>
-        <ion-input autocomplete="off" type="password" name="password" [(ngModel)]="loginData.password"></ion-input>
+        <ion-input autocomplete="off" type="password" name="password" id="password"></ion-input>
       </ion-item>
 
       <ion-item lines='none'>
         <a routerLink='/signup'>Create Account</a>
       </ion-item>
     </ion-list>
-    <ion-button expand="block" share="round" color="success" (click)="loginAction()">Login</ion-button>
-  </form>
+    <ion-button expand="block" type="submit" share="round" color="success" (click)="loginAction()">Login</ion-button>
+  <!-- </form> -->
 </ion-content>

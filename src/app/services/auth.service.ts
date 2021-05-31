@@ -11,26 +11,26 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class AuthService {
-  url = environment.apiUrl
-  constructor(private http: HttpClient, private storageService: StorageService
-  ) { }
+  // url = environment.apiUrl
+  // constructor(private http: HttpClient, private storageService: StorageService
+  // ) { }
 
-  login(loginData: any): Observable<any> {
-    console.log(loginData);
+  // login(loginData: any): Observable<any> {
+  //   console.log(loginData);
 
-    return this.http.post(`${this.url}/user/login`, loginData)
-  }
-  signup(postData: any): Observable<any> {
-    console.log(postData);
-    return this.http.post(`${this.url}/user/signup`, postData)
-  }
-  logout() {
+  //   return this.http.post(`${this.url}/user/login`, loginData)
+  // }
+  // signup(postData: any): Observable<any> {
+  //   console.log(postData);
+  //   return this.http.post(`${this.url}/user/signup`, postData)
+  // }
+  // logout() {
 
-    return this.storageService.clear();
-    // this.storageService.removeItem(AuthConstant.AUTH).then(res => {
-    //   this.router.navigate(['']);
-    // })
-  }
+  //   return this.storageService.clear();
+  //   // this.storageService.removeItem(AuthConstant.AUTH).then(res => {
+  //   //   this.router.navigate(['']);
+  //   // })
+  // }
 
 
 };

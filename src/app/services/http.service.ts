@@ -9,12 +9,12 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  post(serviceName: string, data: any) {
-    const headers = new HttpHeaders();
-    const options = { header: headers, withCredintials: false }
+  // post(serviceName: string, data: any) {
+  //   const headers = new HttpHeaders();
+  //   const options = { header: headers, withCredintials: false }
 
-    const url = environment.apiUrl + serviceName;
-    //how to send headers data
-    return this.http.post(url, JSON.stringify(data));
-  }
+  //   const url = environment.apiUrl + serviceName;
+  //   //how to send headers data
+  //   return this.http.post(url, JSON.stringify(data));
+  // }
 }
