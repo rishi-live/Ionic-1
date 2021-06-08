@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,7 +17,7 @@ export class AuthenticationService {
     }
   };
   private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false');
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value;
@@ -33,9 +34,10 @@ export class AuthenticationService {
     return this.http.post(environment.appConfig.apiUrl + 'user/login/', data);
   }
   createUser(data) {
-    return this.http.post(environment.appConfig.apiUrl + 'user/signUp/', data);
+    return this.http.post(environment.appConfig.apiUrl + 'user/signup/', data);
   }
   logout() {
     localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

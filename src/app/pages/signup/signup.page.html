@@ -9,33 +9,45 @@
     <img src="assets/images/logo.png" class="smallLogo" />
     <h1>Sign Up</h1>
   </div>
-  <form>
+  <form [formGroup]="registerForm">
     <ion-list>
       <ion-item>
         <ion-label position="floating" color="primary">First Name</ion-label>
-        <ion-input autocomplete="off" type="text" name="first_name" [(ngModel)]="postData.first_name"></ion-input>
+        <ion-input autocomplete="off" type="text" name="first_name" formControlName="fname"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" color="primary">Last Name</ion-label>
-        <ion-input autocomplete="off" type="text" name="last_name" [(ngModel)]="postData.last_name"></ion-input>
+        <ion-input autocomplete="off" type="text" name="last_name" formControlName="lname"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating" color="primary">Email</ion-label>
-        <ion-input autocomplete="off" type="text" name="email" [(ngModel)]="postData.email"></ion-input>
-      </ion-item>
+      <div class="input-group">
+        <ion-item>
+          <ion-label position="floating" color="primary">Email</ion-label>
+          <ion-input autocomplete="off" type="text" name="email" formControlName="email"></ion-input>
+        </ion-item>
+        <div *ngIf="foo.email.touched && foo.email.invalid" class="error_color">
+          <div *ngIf="foo.email.errors.required">Email is required.</div>
+          <div *ngIf="foo.email.errors.pattern">Please enter correct email.</div>
+        </div>
+      </div>
+
       <ion-item>
         <ion-label position="floating" color="primary">Mobile</ion-label>
-        <ion-input autocomplete="off" type="number" name="mobile" [(ngModel)]="postData.mobile"></ion-input>
+        <ion-input autocomplete="off" type="number" name="mobile" formControlName="mobile"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating" color="primary">Password</ion-label>
-        <ion-input autocomplete="off" type="password" name="password" [(ngModel)]="postData.password"></ion-input>
-      </ion-item>
-
+      <div class="input-group">
+        <ion-item>
+          <ion-label position="floating" color="primary">Password</ion-label>
+          <ion-input autocomplete="off" type="password" name="password" formControlName="password"></ion-input>
+        </ion-item>
+        <div *ngIf="foo.password.touched && foo.password.invalid" class="error_color">
+          <span *ngIf="foo.password.errors?.required">Password is required</span>
+          <span *ngIf="foo.password.errors?.minlength">Password needs to be 6 characters</span>
+        </div>
+      </div>
       <ion-item lines='none'>
         Already have an account? <a routerLink='/login'> LogIn</a>
       </ion-item>
     </ion-list>
-    <ion-button expand="block" share="round" color="success" (click)="signupAction()">SignUp</ion-button>
+    <ion-button expand="block" share="round" color="success" (click)="signupAction(registerForm)">SignUp</ion-button>
   </form>
 </ion-content>
